@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+  <h1 id="title">Title</h1>
+  <p id="description">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, alias. Amet minima nemo facere totam quos, quia officiis iure accusamus ipsum, reprehenderit numquam autem doloribus magnam voluptatem nobis cum eius.
+  </p>
+  <form id="survey-form">
+    <label id="name-label" for="name">Name</label>
+    <input id="name" type="text" placeholder="Fill in your name here" required>
+    <label id="email-label" for="email">Email</label>
+    <input id="email" type="email" placeholder="Fill in your email" required>
+    <label id="number-label" for="number">Number</label>
+    <input id="number" type="number" min=1 max=150 placeholder=1>
+    <select id="dropdown">
+      <option value="Lorem">Lorem</option>
+      <option value="Ipsum">Ipsum</option>
+      <option value="Dolor">Dolor</option>
+    </select>
+    <fieldset>
+      <input type="radio" id="home" name="location" value="home">
+      <label for="home">Home</label>
+      <input type="radio" id="office" name="location" value="office">
+      <label for="office">Office</label>
+      <input type="radio" id="abroad" name="location" value="abroad">
+      <label for="abroad">Abroad</label>
+    </fieldset>
+    <fieldset>
+      <input type="checkbox" id="test1" value="Test1">
+      <label for="test1">Test 1</label>
+      <input type="checkbox" id="test2" value="Test2">
+      <label for="test2">Test 2</label>
+      <input type="checkbox" id="test3" value="Test3">
+      <label for="test3">Test 3</label>
+    </fieldset>
+    <textarea placeholder="Enter additional comments here."></textarea><br>
+    <button type="submit" id=submit>Submit</button>
+  </form>
+  <script src='https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js'></script>
+</body>
+</html>
