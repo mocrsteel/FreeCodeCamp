@@ -4,7 +4,7 @@
 :root {
     --corp-img: "C:/Users/yxt87597/OneDrive - INEOS USA LLC/Pictures/Dev/Pi-hole-vortex2.jpg"
 }
-.nav-bar {
+.header {
     position: fixed;
     top: 0;
     left:0;
@@ -12,32 +12,56 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 1em 1em 1em 1em;
-    background-image: linear-gradient(30deg, #ffb6c1, #ffffe0);
+    align-items: center;
+    padding: 0.5em 1em 0.5em 1em;
+    background-image: linear-gradient(90deg, #D49A89, #557571);
 }
-
+.nav-bar {
+    flex-grow: 2;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: end;
+}
 @media (max-width:720px) {
     .nav-bar {
         flex-direction: column;
+        justify-content: center;
     }
 }
 #header-img {
-    padding-left: 1.5em;
+    padding-left: 2em;
     padding-right: 2em;
-    widt:
+    width: 60px;
+    height: auto;
+}
+
+@keyframes nav-hover-in {
+    0%    {color :white; font-weight:300;}
+    100%  {color: rgb(58, 58, 58); font-weight:500;}
+}
+@keyframes nav-hover-out {
+    0%  {color:rgb(58, 58, 58); font-weight: 500;}
+    100% {color: white; font-weight: 300;}
 }
 
 .nav-link {
     text-decoration: none;
+    animation: nav-hover-out;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
     padding-right: 1.5em;
     font-family: 'Quicksand'; 
     font-size: 25px;
-    font-weight:700;
-    color:hsl(0, 0%, 100%)  
+    /* font-weight:700; */
+    /* color:hsl(0, 0%, 100%) */  
 }
 
+
 .nav-link:hover {
-    color:gray;
+    animation: nav-hover-in;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
 }
 
 .content {
