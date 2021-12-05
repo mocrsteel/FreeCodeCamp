@@ -1,2 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;300;400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --corp-img: "C:/Users/yxt87597/OneDrive - INEOS USA LLC/Pictures/Dev/Pi-hole-vortex2.jpg"
+}
+.nav-bar {
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1em 1em 1em 1em;
+    background-image: linear-gradient(30deg, #ffb6c1, #ffffe0);
+}
+
+@media (max-width:720px) {
+    .nav-bar {
+        flex-direction: column;
+    }
+}
+#header-img {
+    padding-left: 1.5em;
+    padding-right: 2em;
+    widt:
+}
+
+.nav-link {
+    text-decoration: none;
+    padding-right: 1.5em;
+    font-family: 'Quicksand'; 
+    font-size: 25px;
+    font-weight:700;
+    color:hsl(0, 0%, 100%)  
+}
+
+.nav-link:hover {
+    color:gray;
+}
+
+.content {
+    margin-top:5em;
+}
+
+body {
+    background-color: hsl(0, 100%, 100%)
+}
