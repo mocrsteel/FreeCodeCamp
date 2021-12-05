@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;300;400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
-:root {
-    --corp-img: "C:/Users/yxt87597/OneDrive - INEOS USA LLC/Pictures/Dev/Pi-hole-vortex2.jpg"
-}
 .header {
     position: fixed;
     top: 0;
@@ -14,8 +11,21 @@
     flex-wrap: wrap;
     align-items: center;
     padding: 0.5em 1em 0.5em 1em;
-    background-image: linear-gradient(90deg, #D49A89, #557571);
+    background-image: linear-gradient(270deg, #DBD0C0, #FAEEE0);
+    
+    box-shadow: 0 40px 30px  white;
 }
+
+/* #D49A89, #557571 */
+
+
+.header-img {
+    padding-left: 2em;
+    padding-right: 2em;
+    width: 60px;
+    height: auto;
+}
+
 .nav-bar {
     flex-grow: 2;
     display: flex;
@@ -29,20 +39,14 @@
         justify-content: center;
     }
 }
-#header-img {
-    padding-left: 2em;
-    padding-right: 2em;
-    width: 60px;
-    height: auto;
-}
 
 @keyframes nav-hover-in {
-    0%    {color :white; font-weight:300;}
-    100%  {color: rgb(58, 58, 58); font-weight:500;}
+    0%    {color :hsl(0, 0%, 40%);}
+    100%  {color: hsl(0, 0%, 60%);}
 }
 @keyframes nav-hover-out {
-    0%  {color:rgb(58, 58, 58); font-weight: 500;}
-    100% {color: white; font-weight: 300;}
+    0%  {color: hsl(0, 0%, 60%);}
+    100% {color: hsl(0, 0%, 40%);}
 }
 
 .nav-link {
@@ -65,9 +69,43 @@
 }
 
 .content {
-    margin-top:5em;
+    margin-top:130px;
+    padding: 0 8% 10% 8%;
+    font-family: 'Quicksand';
+    color:hsl(0, 0%, 20%)
 }
 
-body {
-    background-color: hsl(0, 100%, 100%)
+.content h1{
+    font-weight: 500;
+    margin: 2em 0 1em 0;
+}
+
+.content h2 {
+    font-weight: 500;
+    margin: 1.7em 0 1em 0;
+}
+
+.specs-media {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.specs-title {
+    align-self: center;
+}
+
+/* .generic-list {
+    flex-grow: 1;
+} */
+
+.video {
+    align-self: center;
+    justify-self: stretch;
+    padding: 1%
+}
+
+#form {
+    padding: 50px;
 }
