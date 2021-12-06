@@ -49,6 +49,8 @@
     100% {color: hsl(0, 0%, 40%);}
 }
 
+/* The animation should be changed using some JS later on to avoid the 'hover-out' animation on page loading. */
+
 .nav-link {
     text-decoration: none;
     animation: nav-hover-out;
