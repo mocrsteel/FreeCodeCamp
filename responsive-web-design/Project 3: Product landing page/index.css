@@ -85,7 +85,7 @@
     margin: 1.7em 0 1em 0;
 }
 
-.specs-media {
+.specs {
     width: auto;
     display: flex;
     flex-direction: row;
@@ -94,16 +94,21 @@
 
 .specs-title {
     align-self: center;
+    flex-grow: 1;
 }
 
+.generic-list {
+    flex-grow: 2;
+}
 /* .generic-list {
     flex-grow: 1;
 } */
 
-.video {
-    align-self: center;
-    justify-self: stretch;
-    padding: 1%
+.media {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
 
 #form {
