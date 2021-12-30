@@ -15,21 +15,22 @@ function convertToRoman(num) {
     1000: 'M' 
   }
   const basisNum = Object.keys(romanNumerals).map(num => Number(num)).sort((a,b) => b - a);
-  const recurseNum = (num) => {
+  let reducedNum = num
+  let numArr = [];
+  while (reducedNum > 0) {
     for (let basis of basisNum) {
-      if (basis <= num) {
-        let [quot, res] = [Math.floor(num / basis), num % basis]
-        if (quot >= 0 && red > 0) {
-          [quot, res] = recurseNum
+      if (basis <= reducedNum) {
+        let [floor, res] = [Math.floor(reducedNum / basis), reducedNum % basis];
+        numArr.push(romanNumerals[basis].repeat(floor));
+        if (res > 0) {
+          reducedNum = res;
+        } else {
+          reducedNum = 0;
         }
       }
     }
-  }  
-  
-  for (let basis of basisNum) {
-      console.log(basis + ' quotient = ' + Math.floor(num / basis) + ' with residual = ' + num % basis)
   }
-  return basisNum;
+  return numArr.join('');
 }
 
 console.log(convertToRoman(36));
