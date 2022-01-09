@@ -25,18 +25,19 @@ function checkCashRegister(price, cash, cid) {
             change: cid,
         };
     } else {
-        let returnedCash = {};
+        let returnedCash = [];
         for (let i = 0; i <= sortedCID.length - 1; i++) {
             let [key, amount] = sortedCID[i];
             let numUnits = Math.floor(changeRequired / moneyNames[key]);
             if (changeRequired > 0 && numUnits > 0) {
-                console.log(changeRequired, numUnits, numUnits * moneyNames[key])
-                returnedCash[key] = Math.round(numUnits * moneyNames[key] * 100) / 100;
-                changeRequired -= numUnits * moneyNames[key];
+                let returnedAmount = Math.min(numUnits * moneyNames[key], amount);
+                returnedCash.push([key, returnedAmount]);
+                changeRequired = Math.round(
+                    (changeRequired - returnedAmount) * 100) / 100;
             };
         };
         console.log(changeRequired)
-        return returnedCash;
+        return {status: "OPEN", change: returnedCash};
     }
   }
   
