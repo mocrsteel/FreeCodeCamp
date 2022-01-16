@@ -5,9 +5,32 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #D9D0C7;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.card {
+  background-color: #D9B391;
+  box-shadow: 0 0 1.4em 0.1em #9FA3A6;
+  border-radius: 1.5em;
+}
+
+#text {
+  color: #ffffff;
+  font-size: 2em;
+}
+
+.btn {
+  color: white;
+  background-color: #733A19;
+  border-color: #733A19;
+}
+
+.btn-circle {
+ width: 25px;
+ height: 25px;
 }

@@ -1,6 +1,6 @@
 import './App.css'
 
-function App () {
+const App = () => {
   return (
     <div id="quote-box" className="App">
       <div id="text">
