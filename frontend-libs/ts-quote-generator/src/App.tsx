@@ -1,22 +1,48 @@
 import React, { useState } from 'react'
 import './App.css'
 
-const QuoteContent = () => {
+interface Quote {
+  text: string,
+  author: string,
+}
+
+const quotes: Quote[] = [
+  {
+    text: 'No place better than the home toilet.',
+    author: 'Wise Me'
+  },
+  {
+    text: 'Have you been on this one? I like a warm toilet.',
+    author: 'Sammy Tange'
+  },
+  {
+    text: 'Can we agree on this?',
+    author: 'Protut'
+  },
+  {
+    text: 'I\'m the bald guy',
+    author: 'Seth Everman'
+  }
+]
+
+const QuoteContent = (props: Quote) => {
   return (
     <div id="quote-content">
-      <div id="text" className='card-text p-5'>
+      <div id="text" className='d-flex flex-column align-items-end p-5'>
       <p>
         <i className="bi bi-quote"/>
-        Testing element here
+        {props.text}
         <i className="bi bi-quote bi-quote-flip" />
       </p>
+      <p id="quote-author" className="me-1">
+        - {props.author} -</p>
       </div>
       <div id="author" ></div>
     </div>
   )
 }
 
-const QuoteButtons = () => {
+const QuoteButtons = (props: any) => {
   return (
     <div id="buttons" className="d-flex flex-row justify-content-between my-3 mx-4">
         <div id="socials">
@@ -47,17 +73,28 @@ const QuoteButtons = () => {
           </button>
           </div>
         <div>
-          <button id="new-quote" className="btn btn-bullet">New Quote</button>
+          <button id="new-quote" className="btn btn-bullet" onClick={props.onClick}>New Quote</button>
         </div>
     </div>
   )
 }
 
 const QuoteBox = () => {
+  const [quote, updateQuote] = useState({
+    text: 'No place better than the home toilet.',
+    author: 'Ikke'
+  })
+  const handleClick = () => {
+    const randIdx = Math.floor(Math.random() * (quotes.length - 1))
+    updateQuote({
+      text: quotes[randIdx].text,
+      author: quotes[randIdx].author
+    })
+  }
   return (
     <div id="quote-box" className="my-auto card">
-      <QuoteContent />
-      <QuoteButtons />
+      <QuoteContent text={quote.text} author={quote.author}/>
+      <QuoteButtons onClick={handleClick}/>
     </div>
   )
 }
