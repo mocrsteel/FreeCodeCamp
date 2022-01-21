@@ -37,9 +37,15 @@ const QuoteContent = (props: Quote) => {
       <p id="quote-author" className="me-1">
         - {props.author} -</p>
       </div>
-      <div id="author" ></div>
     </div>
   )
+}
+
+// We don't want the same quote each time we visit the page.
+const randIdx = Math.floor(Math.random() * (quotes.length))
+const initQuote: Quote = {
+  text: quotes[randIdx].text,
+  author: quotes[randIdx].author
 }
 
 const QuoteButtons = (props: any) => {
@@ -81,18 +87,19 @@ const QuoteButtons = (props: any) => {
 
 const QuoteBox = () => {
   const [quote, updateQuote] = useState({
-    text: 'No place better than the home toilet.',
-    author: 'Ikke'
+    text: initQuote.text,
+    author: initQuote.author
   })
   const handleClick = () => {
     const randIdx = Math.floor(Math.random() * (quotes.length - 1))
+    console.log('Clicked quote button.')
     updateQuote({
       text: quotes[randIdx].text,
       author: quotes[randIdx].author
     })
   }
   return (
-    <div id="quote-box" className="my-auto card">
+    <div id="quote-box" className="my-auto w-80">
       <QuoteContent text={quote.text} author={quote.author}/>
       <QuoteButtons onClick={handleClick}/>
     </div>
@@ -108,3 +115,4 @@ const App = () => {
 }
 
 export default App
+export { quotes }
