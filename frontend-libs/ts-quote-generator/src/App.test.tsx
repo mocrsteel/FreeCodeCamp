@@ -1,7 +1,7 @@
 import React from 'react'
-import { render, waitFor } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
-import App, { quotes } from './App'
+import App from './App'
 
 test('contains wrapper element with id "quote-box', () => {
   render(<App />)

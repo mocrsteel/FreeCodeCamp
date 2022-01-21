@@ -21,15 +21,22 @@ const quotes: Quote[] = [
   },
   {
     text: 'I\'m the bald guy',
-    author: 'Seth Everman'
+    author: 'Jens Van der Linden'
   }
 ]
+
+// We don't want the same quote each time we visit the page.
+const randIdx = Math.floor(Math.random() * (quotes.length))
+const initQuote: Quote = {
+  text: quotes[randIdx].text,
+  author: quotes[randIdx].author
+}
 
 const QuoteContent = (props: Quote) => {
   return (
     <div id="quote-content">
-      <div id="text" className='d-flex flex-column align-items-end p-5'>
-      <p>
+      <div className='d-flex flex-column align-items-end p-5'>
+      <p id="quote-text">
         <i className="bi bi-quote"/>
         {props.text}
         <i className="bi bi-quote bi-quote-flip" />
@@ -39,13 +46,6 @@ const QuoteContent = (props: Quote) => {
       </div>
     </div>
   )
-}
-
-// We don't want the same quote each time we visit the page.
-const randIdx = Math.floor(Math.random() * (quotes.length))
-const initQuote: Quote = {
-  text: quotes[randIdx].text,
-  author: quotes[randIdx].author
 }
 
 const QuoteButtons = (props: any) => {
@@ -91,7 +91,13 @@ const QuoteBox = () => {
     author: initQuote.author
   })
   const handleClick = () => {
-    const randIdx = Math.floor(Math.random() * (quotes.length - 1))
+    let randIdx = 0
+    do {
+      randIdx = Math.floor(Math.random() * quotes.length)
+    } while (
+      quotes[randIdx].text === quote.text &&
+      quotes[randIdx].author === quote.author
+    )
     console.log('Clicked quote button.')
     updateQuote({
       text: quotes[randIdx].text,
@@ -99,7 +105,7 @@ const QuoteBox = () => {
     })
   }
   return (
-    <div id="quote-box" className="my-auto w-80">
+    <div id="quote-box" className="my-auto card card-fixed">
       <QuoteContent text={quote.text} author={quote.author}/>
       <QuoteButtons onClick={handleClick}/>
     </div>
@@ -108,11 +114,10 @@ const QuoteBox = () => {
 
 const App = () => {
   return (
-  <div className="container-fluid h-100 d-flex justify-content-center">
+  <div className="container h-100 d-flex justify-content-center">
     <QuoteBox />
   </div>
   )
 }
 
 export default App
-export { quotes }
