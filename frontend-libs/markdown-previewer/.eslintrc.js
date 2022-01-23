@@ -25,6 +25,7 @@ module.exports = {
     'jest'
   ],
   rules: {
-    'no-use-before-define': 'off'
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': ['error']
   }
 }

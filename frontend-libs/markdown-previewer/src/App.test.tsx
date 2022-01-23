@@ -1,9 +1,14 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
-import App from './App'
+import { render } from '@testing-library/react'
+import { Editor } from './App'
 
 test('renders learn react link', () => {
-  render(<App />)
-  const linkElement = screen.getByText(/learn react/i)
-  expect(linkElement).toBeInTheDocument()
+  const { container, debug, unmount } = render(<Editor />)
+  const element = container.querySelector('textarea')
+  // debug(element)
+  // console.log(element.id)
+  if (element !== null) {
+    expect(element.id).toBe('editor')
+  }
+  unmount()
 })
