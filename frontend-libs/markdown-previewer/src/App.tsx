@@ -4,19 +4,26 @@ import './App.css'
 const Editor = () => {
   return (
     <div>
-      <p>Editor</p>
+      <h1>Markdown Editor</h1>
       <textarea id='editor'></textarea>
     </div>
+  )
+}
+
+const Preview = () => {
+  return (
+    <div id='preview'></div>
   )
 }
 
 const App = () => {
   return (
     <div className="App">
-      testing element
+      <Editor />
+      <Preview />
     </div>
   )
 }
 
 export default App
-export { Editor }
+export { Editor, Preview }
