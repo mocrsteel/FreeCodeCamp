@@ -8,6 +8,7 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
     'plugin:@typescript-eslint/recommended',
     'standard'
   ],
@@ -24,6 +25,9 @@ module.exports = {
     '@typescript-eslint',
     'jest'
   ],
+  globals: {
+    JSX: true
+  },
   rules: {
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error']
