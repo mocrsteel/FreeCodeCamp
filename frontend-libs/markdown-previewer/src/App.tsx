@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Fragment, useState } from 'react'
-import './App.css'
+import './styles/App.scss'
 import { marked } from 'marked'
 
 export type mdProps = {
@@ -11,27 +11,23 @@ export type mdProps = {
 export const Editor = ({ value, handleChange }: mdProps): JSX.Element => {
   return (
     <Fragment>
+      <div className='Editor'>
         <h2>Editor</h2>
         <textarea id='editor' value={value} onChange={handleChange}></textarea>
+      </div>
     </Fragment>
   )
 }
 
 export const Preview = ({ value }: { value: mdProps['value'] }): JSX.Element => {
   // function gives errors for now. Check console log and figure out what to to.
-  const convertToHTML = (htmlString: string) => {
-    const template = document.createElement('template')
-    htmlString = marked.parse(htmlString).trim()
-    template.innerHTML = htmlString
-    return template.content.childNodes
-  }
-  console.log(convertToHTML(value))
   return (
     <Fragment>
-    <h2>Preview</h2>
-    <div id='preview'>
-      {value}
-    </div>
+      <div className='Previewer'>
+        <h2>Preview</h2>
+        <div id='preview' dangerouslySetInnerHTML={{ __html: marked.parse(value).trim() }}>
+        </div>
+      </div>
     </Fragment>
   )
 }
@@ -43,12 +39,16 @@ const App = () => {
   }
   return (
     <Fragment>
-      <h1>Markdown Editor</h1>
-      <Editor
-        value={textAreaValue}
-        handleChange={handleTextAreaChange}
-      />
-      <Preview value={textAreaValue}/>
+      <div className='App'>
+        <h1 className='Title'>Markdown Editor</h1>
+        <div className='Content'>
+          <Editor
+            value={textAreaValue}
+            handleChange={handleTextAreaChange}
+          />
+          <Preview value={textAreaValue}/>
+        </div>
+      </div>
     </Fragment>
   )
 }
