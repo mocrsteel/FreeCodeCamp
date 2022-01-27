@@ -1,14 +1,15 @@
 $tablet-portrait: 1100px;
-$title-height: 50px;
-$safe-pixels: 10px;
+$title-bar-width: 130px;
+$safe-pixels: 20px;
 
 @mixin Container {
   width: 100%;
   height: 100%;
   margin: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
+
 }
 
 @mixin Panel {
@@ -48,24 +49,40 @@ $safe-pixels: 10px;
   box-shadow: 1px 1px 10px 1px rgba(177, 176, 176, 0.253);
 }
 
+div {
+  width: 100%;
+  height: 100%
+}
+
 .App {
-  height: 100vh;
+  height: 100%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  flex-flow: column wrap;
-  justify-content: start;
-  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
 
   .Title {
-    width: 100%;
-    height: 50px;
-    align-self: center;
-    justify-self: center;
-  }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $title-bar-width;
+    height: 100vh;
+    background-color: darkslategrey;
+    color: whitesmoke;
+    h1 {
+      transform: translateX(-200px) translateY(180px) rotate(90deg);
+      text-align: center;
+      width: 450px;
+      height: $title-bar-width;
+      padding-top: 15px;
 
+      font-size: 50px;
+      font-weight: 300;
+    }
+  }
   .Content {
-    width: 100%;
-    height: calc(100% - $title-height - $safe-pixels);
+    margin-left: $title-bar-width;
     display: flex;
     flex-direction: row;
     align-items: flex-start;

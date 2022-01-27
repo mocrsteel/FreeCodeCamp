@@ -40,7 +40,9 @@ const App = () => {
   return (
     <Fragment>
       <div className='App'>
-        <h1 className='Title'>Markdown Editor</h1>
+        <div className='Title'>
+          <h1>Markdown Editor</h1>
+        </div>
         <div className='Content'>
           <Editor
             value={textAreaValue}
