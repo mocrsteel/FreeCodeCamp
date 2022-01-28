@@ -2,13 +2,15 @@
 
 $font-stack-normal: 'Tittilum Web', 'Lato', sans-serif;
 $font-stack-code: 'Fira Code', source-code-pro, Menlo, Consolas, monospace;
+
 $h1-size: 50px;
 $h2-size: 35px;
+$h2-padding: 30px;
 
 
 html {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   margin: 0;
   padding: 0;
 
@@ -31,4 +33,13 @@ code {
 textarea {
   font-family: $font-stack-code;
   font-size: 1em;
+}
+
+h2.PaneTitle {
+  font-family: $font-stack-normal;
+  font-weight: 200;
+  padding: $h2-padding;
+  font-size: $h2-size;
+  text-align: center;
+  margin: 0;
 }

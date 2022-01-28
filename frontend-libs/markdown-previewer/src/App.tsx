@@ -12,7 +12,7 @@ export const Editor = ({ value, handleChange }: mdProps): JSX.Element => {
   return (
     <Fragment>
       <div className='Editor'>
-        <h2>Editor</h2>
+        <h2 className='PaneTitle'>Editor</h2>
         <textarea id='editor' value={value} onChange={handleChange}></textarea>
       </div>
     </Fragment>
@@ -24,7 +24,7 @@ export const Preview = ({ value }: { value: mdProps['value'] }): JSX.Element => 
   return (
     <Fragment>
       <div className='Previewer'>
-        <h2>Preview</h2>
+        <h2 className='PaneTitle'>Preview</h2>
         <div id='preview' dangerouslySetInnerHTML={{ __html: marked.parse(value).trim() }}>
         </div>
       </div>
