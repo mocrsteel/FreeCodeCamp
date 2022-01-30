@@ -67,7 +67,7 @@ div#root, div.App, div.Title, div.Content, div.Editor, div.Previewer {
     h1 {
       //transform: scale(1) translateX(-180px) translateY(180px) rotate(90deg);
       transform-origin: bottom left;
-      transform: translateX(-1 * ($h1-size / 2 + ($title-bar-width/2 - $h1-size) / 2)) translateY(-60px) rotate(90deg);
+      transform: translateX(calc(-1 * ($h1-size / 2 + ($title-bar-width/2 - $h1-size) / 2))) translateY(-60px) rotate(90deg);
       white-space: nowrap;
       width: 100%;
       height: $title-bar-width;
