@@ -5,41 +5,48 @@ $font-stack-code: 'Fira Code', source-code-pro, Menlo, Consolas, monospace;
 
 $h1-size: 50px;
 $h2-size: 35px;
+$h1-padding: 15px;
 $h2-padding: 30px;
 
 
 html {
-  width: 100vw;
+  // See inherit comment below.
+  box-sizing: border-box;
   height: 100vh;
-  margin: 0;
-  padding: 0;
-
   // Overalll titles, fonts, sizes etc.
   font-family: $font-stack-normal;
   font-weight: 300;
 }
 
+// This should prevent child components exceeding parent limits.
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
-  width: 100%;
-  height: 100%;
+  height: 100vh;
   margin: 0;
   padding: 0;
 }
 
 code {
   font-family: $font-stack-code;
+  font-weight: 200;
 }
 
 textarea {
   font-family: $font-stack-code;
+  font-weight: 200;
   font-size: 1em;
 }
 
-h2.PaneTitle {
+h2.PanelTitle {
   font-family: $font-stack-normal;
   font-weight: 200;
   padding: $h2-padding;
   font-size: $h2-size;
-  text-align: center;
+  line-height: $h2-size;
+  text-align: end;
+  padding-right: 50px;
   margin: 0;
 }

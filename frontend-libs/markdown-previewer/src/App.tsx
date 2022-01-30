@@ -8,11 +8,13 @@ export type mdProps = {
   handleChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
 }
 
+export type defaultEditorContent = string
+
 export const Editor = ({ value, handleChange }: mdProps): JSX.Element => {
   return (
     <Fragment>
       <div className='Editor'>
-        <h2 className='PaneTitle'>Editor</h2>
+        <h2 className='PanelTitle'>Editor</h2>
         <textarea id='editor' value={value} onChange={handleChange}></textarea>
       </div>
     </Fragment>
@@ -24,7 +26,7 @@ export const Preview = ({ value }: { value: mdProps['value'] }): JSX.Element => 
   return (
     <Fragment>
       <div className='Previewer'>
-        <h2 className='PaneTitle'>Preview</h2>
+        <h2 className='PanelTitle'>Preview</h2>
         <div id='preview' dangerouslySetInnerHTML={{ __html: marked.parse(value).trim() }}>
         </div>
       </div>
@@ -33,7 +35,11 @@ export const Preview = ({ value }: { value: mdProps['value'] }): JSX.Element => 
 }
 
 const App = () => {
-  const [textAreaValue, updateTextAreaValue] = useState('')
+  const defaultEditorContent = '# Main Title\n# Sub Title 1\n## Sub Title 2' +
+    '\n\nLook at [Duck Duck Go](https://duckduckgo.com)' +
+    '\nSome options for a `code` block:\n* Python\n* JavaScript\n* SASS' +
+    '\n\n```\nfor (let i = 0; i < 25; i++) {\n\tconsole.log(hello world!)\n}\n```'
+  const [textAreaValue, updateTextAreaValue] = useState(defaultEditorContent)
   const handleTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
     updateTextAreaValue(e.currentTarget.value)
   }
