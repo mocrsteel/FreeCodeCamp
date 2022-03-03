@@ -29,11 +29,11 @@ function App () {
   return (
     <div className="App">
       <h1 id='break-label'>Break Length</h1>
-      <h2 id="break-length">{breakLength}</h2>
+      <div id="break-length">{breakLength}</div>
       <button id='break-increment' onClick={clickHandler}> + </button>
       <button id='break-decrement' onClick={clickHandler}> - </button>
       <h1 id="session-label">Session Length</h1>
-      <h2 id="session-length">{sessionLength}</h2>
+      <div id="session-length">{sessionLength}</div>
       <button id='session-increment' onClick={clickHandler}> + </button>
       <button id='session-decrement' onClick={clickHandler}> - </button>
     </div>
